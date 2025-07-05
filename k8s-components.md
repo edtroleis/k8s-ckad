@@ -20,3 +20,34 @@
 
 ## kubectl
 `kubectl` is the command-line tool used to interact with the Kubernetes API server. It allows you to create, update, delete, and get information about resources in the cluster.
+
+# Core concepts
+- Pod: is the smallest and simplest Kubernetes object. It represents a single instance of a running process in your cluster. Pods can contain one or more containers, and they share the same network namespace
+
+```yaml
+# creates a new pod from a YAML file pod-definition.yml
+kubectl create -f pod-definition.yml
+
+# creates a new pod named "nginx" with the nginx image and exposes port 80.
+kubectl run nginx --image=nginx --port=80
+
+# get the list of pods in the current namespace
+kubeclt get pods
+
+# get the details of the nginx pod
+kubectl describe pod myapp-pod
+```
+
+- Service: is an abstraction that defines a logical set of pods and a policy by which to access them. Services enable communication between different parts of your application and provide a stable endpoint for accessing pods
+- 
+- Deployment: is a higher-level abstraction that manages a set of replicas of a pod.
+
+
+
+| Kind       | Version |
+| ---------- | ------- |
+| Pod        | v1      |
+| Service    | v1      |
+| ReplicaSet | apps/v1 |
+| Deployment | apps/v1 |
+
